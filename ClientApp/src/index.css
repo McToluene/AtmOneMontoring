@@ -1,0 +1,12 @@
+body {
+  background-color: #f9f9ff;
+}
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.65rem;
+}
+
+.react-toast-notifications__container {
+  z-index: 1100 !important;
+  top: 70px !important;
+}
