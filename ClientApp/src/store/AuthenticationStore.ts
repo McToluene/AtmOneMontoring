@@ -56,6 +56,10 @@ interface SetPage {
   payload: boolean;
 }
 
+interface ResetStateAction {
+  type: "RESET_STATE";
+}
+
 type KnownAction =
   | SetCurrentUser
   | GetErrors
@@ -64,6 +68,7 @@ type KnownAction =
   | GetCurrentUserAccessRight
   | GetCurrentUserRoleprivileges
   | GetCurrentUserRoleprivilege
+  | ResetStateAction
   | SetPage;
 
 const unloadedState: AuthenticationState = {
@@ -177,6 +182,7 @@ export const actionCreators = {
         setAuthToken(emptyToken);
         dispatch({ payload: {}, type: "SET_CURRENT_USER" });
         await axios.post("authentication/revoke-token", "");
+        dispatch({ type: "RESET_STATE" });
       } catch (error) {
         dispatch({ payload: error.response?.data, type: "GET_ERRORS" });
       }

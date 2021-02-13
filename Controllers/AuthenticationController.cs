@@ -60,8 +60,9 @@ namespace AtmOneMonitorMVC.Controllers
         string token = GenerateToken(appUser);
         return Ok(new { token, appUser.RefreshTokens });
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        Console.WriteLine(ex);
         return Unauthorized();
       }
     }
