@@ -1,0 +1,1 @@
+UPDATE [AtmOneMonitorDashBoard].[dbo].[alert] SET aDate = getdate(), uDate = getdate() WHERE (sent = 0)
